@@ -20,7 +20,7 @@ fn main() {
         match client.read_exact(&mut buff) {
             Ok(_) => {
                 let msg = buff.into_iter().take_while(|&x| x != 0).collect::<Vec<_>>();
-                println!("message recv {:?}", msg)
+                println!("message recv {:?}", msg);
             }
             Err(ref err) if err.kind() == ErrorKind::WouldBlock => (),
             Err(_) => {
